@@ -3,6 +3,7 @@ package com.spring_cloud.eureka.client.product;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -23,10 +24,16 @@ public class ProductController {
     @Value("${message}")
     private String message;
 
-    @GetMapping
-    public String getProduct() {
-        return "Product detail from PORT : " + serverPort + " and message : " + this.message ;
+    //@GetMapping
+    //public String getProduct() {
+    //    return "Product detail from PORT : " + serverPort + " and message : " + this.message ;
+    //}
+
+    @GetMapping("/{id}")
+    public String getProduct(@PathVariable("id") String id) {
+        return "Product " + id + " info!!!!! From port : " + serverPort;
     }
+
 }
 
 
