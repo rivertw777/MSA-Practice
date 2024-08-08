@@ -17,8 +17,8 @@ public class CustomPreFilter implements GlobalFilter, Ordered {
 
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
-        ServerHttpRequest response = exchange.getRequest();
-        logger.info("Pre Filter: Request URI is " + response.getURI());
+        ServerHttpRequest request = exchange.getRequest();
+        logger.info("Pre Filter: Request URI is " + request.getURI());
         // Add any custom logic here
 
         return chain.filter(exchange);
