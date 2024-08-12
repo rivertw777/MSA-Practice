@@ -10,7 +10,6 @@ import com.sparta.msa_exam.order.dto.Product;
 import com.sparta.msa_exam.order.entity.Order;
 import com.sparta.msa_exam.order.entity.OrderProduct;
 import com.sparta.msa_exam.order.repository.OrderRepository;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -56,11 +55,6 @@ public class OrderService {
     }
 
     private OrderResponse toResponse(Order order) {
-        List<OrderProduct> orderProducts = order.getProduct_ids();
-        for (OrderProduct orderProduct : orderProducts) {
-            System.out.println(orderProduct.getProduct_id());
-        }
-
         List<Long> productIds = order.getProduct_ids().stream()
                 .map(OrderProduct::getProduct_id)
                 .collect(Collectors.toList());
