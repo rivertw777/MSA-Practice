@@ -19,7 +19,7 @@ public class ProductService {
     public CreateProductResponse createProduct(CreateProductRequest request) {
         Product product = new Product(request.name(), request.supply_price());
         productRepository.save(product);
-        return new CreateProductResponse("Product 생성 완료");
+        return new CreateProductResponse("상품 생성 완료");
     }
 
     public List<ProductResponse> getProducts() {
